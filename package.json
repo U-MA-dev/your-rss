@@ -1,0 +1,19 @@
+{
+  "name": "your-rss",
+  "version": "1.0.0",
+  "author": "yuma_kawabata",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^4.8.0",
+    "axios": "^0.19.0",
+    "fast-xml-parser": "^3.15.1",
+    "next": "^9.1.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
