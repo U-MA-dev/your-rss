@@ -1,12 +1,15 @@
 const rssConfig = {
   lifehacker: {
-    url: "https://www.lifehacker.jp/feed/index.xml"
+    topUrl: "https://www.lifehacker.jp/",
+    rssUrl: "https://www.lifehacker.jp/feed/index.xml"
   },
   huffingtonpost: {
-    url: "https://www.huffingtonpost.jp/feeds/index.xml"
+    topUrl: "https://www.huffingtonpost.jp/",
+    rssUrl: "https://www.huffingtonpost.jp/feeds/index.xml"
   },
   dailyportalz: {
-    url: "https://dailyportalz.jp/feed/headline"
+    topUrl: "https://dailyportalz.jp/",
+    rssUrl: "https://dailyportalz.jp/feed/headline"
   }
 };
 

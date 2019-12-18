@@ -1,62 +1,88 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import rssCongig from "./../env/rss-config";
 
-const useStyles = makeStyles({
-  card: {
-    minWidth: 275
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-});
-
-const ArticleCard = ({ title, pubDate }) => {
-  const classes = useStyles();
-
+const ArticleCard = ({ title, link, pubDate }) => {
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {title}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <>
+      <div className="card">
+        <a href={link} target="_blank">
+          <button className="articleButton">{title}</button>
+        </a>
+      </div>
+      <style>{`
+        .card{
+          width: 100%;
+          height: 98px;
+
+          margin-top: 5px;
+          background-color: #e9dfe5;
+        }
+        a {
+          display: inline-box;
+
+          text-decoration: none;
+        }
+        .articleButton {
+          width: 100%;
+          height: 100%;
+
+          font-size: 18px;
+          overflow: hidden;
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          }
+        `}</style>
+    </>
   );
 };
 
 const Articles = ({ siteName, rssDatas }) => {
   return (
     <>
-      <div>{siteName}</div>
-      {rssDatas.map((rssData, idx) => {
-        return (
-          <ArticleCard
-            key={idx}
-            title={rssData.title}
-            pubDate={rssData.pubDate}
-          ></ArticleCard>
-        );
-      })}
+      <div className="rssBox">
+        <div className="siteInfo">
+          <a href={rssCongig[siteName].topUrl} target="_blank">
+            {siteName}
+          </a>
+        </div>
+        <div className="articleBox">
+          {rssDatas.map((rssData, idx) => {
+            return (
+              <ArticleCard
+                key={idx}
+                title={rssData.title}
+                link={rssData.link}
+                pubDate={rssData.pubDate}
+              ></ArticleCard>
+            );
+          })}
+        </div>
+      </div>
+      <style>
+        {`
+        .rssBox{
+          position: relative;
+          width: 100%;
+          height: 100%
+
+          padding: 5px;
+          margin: 5px;
+        }
+        .siteInfo{
+          margin: 5px;
+          padding: 5px;
+
+          font-size: 25px;
+        }
+        .articleBox{
+          height: 545px;
+          overflow: auto;
+
+        }
+      `}
+      </style>
     </>
   );
 };

@@ -3,7 +3,7 @@ import fastXmlParser from "fast-xml-parser";
 import rssConfig from "../../src/app/env/rss-config";
 
 export default (req, res) => {
-  const url = rssConfig[req.query.site].url;
+  const url = rssConfig[req.query.site].rssUrl;
   axios
     .get(url)
     .then(response => {
