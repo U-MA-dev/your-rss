@@ -30,7 +30,6 @@ const analysisXml = ({ rssVersion, response }) => {
   let items = null;
   if (rssVersion == "1.0") {
     // v1.0
-    console.log(jsonObj);
     items = jsonObj["rdf:RDF"].item;
   } else if (rssVersion == "2.0") {
     // v2.0
