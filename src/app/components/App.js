@@ -7,7 +7,10 @@ function App() {
   const [selectedRsses, setSelectedRsses] = useState([
     "lifehacker",
     "huffingtonpost",
-    "dailyportalz"
+    "dailyportalz",
+    "rocketnews",
+    "digiday",
+    "dqnplus"
   ]);
 
   return (

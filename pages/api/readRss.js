@@ -9,7 +9,14 @@ export default (req, res) => {
     .then(response => {
       res.setHeader("Content-Type", "application/json");
       res.statusCode = 200;
-      res.end(JSON.stringify(analysisXml(response)));
+      res.end(
+        JSON.stringify(
+          analysisXml({
+            rssVersion: rssConfig[req.query.site].rssVersion,
+            response: response
+          })
+        )
+      );
     })
     .catch(error => {
       res.statusCode = 500;
@@ -17,11 +24,19 @@ export default (req, res) => {
     });
 };
 
-const analysisXml = response => {
+const analysisXml = ({ rssVersion, response }) => {
   const jsonObj = fastXmlParser.parse(response.data);
-
   let dataObj = { articles: [] };
-  for (let item of jsonObj.rss.channel.item) {
+  let items = null;
+  if (rssVersion == "1.0") {
+    // v1.0
+    console.log(jsonObj);
+    items = jsonObj["rdf:RDF"].item;
+  } else if (rssVersion == "2.0") {
+    // v2.0
+    items = jsonObj.rss.channel.item;
+  }
+  for (let item of items) {
     let data = {
       title: item.title,
       pubDate: item.pubDate,

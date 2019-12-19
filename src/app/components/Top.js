@@ -45,10 +45,7 @@ const Top = () => {
           return (
             <Grid item xs={10} sm={6} md={4} lg={4} xl={3} key={idx}>
               <Box p={1} m={1} className="siteBox">
-                <Araticles
-                  siteName={rss}
-                  rssDatas={rssDataObj[rss]}
-                ></Araticles>
+                <Araticles site={rss} rssDatas={rssDataObj[rss]}></Araticles>
               </Box>
             </Grid>
           );

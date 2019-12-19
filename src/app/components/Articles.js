@@ -38,13 +38,13 @@ const ArticleCard = ({ title, link, pubDate }) => {
   );
 };
 
-const Articles = ({ siteName, rssDatas }) => {
+const Articles = ({ site, rssDatas }) => {
   return (
     <>
       <div className="rssBox">
         <div className="siteInfo">
-          <a href={rssCongig[siteName].topUrl} target="_blank">
-            {siteName}
+          <a href={rssCongig[site].topUrl} target="_blank">
+            {rssCongig[site].displayName}
           </a>
         </div>
         <div className="articleBox">
@@ -71,15 +71,19 @@ const Articles = ({ siteName, rssDatas }) => {
           margin: 5px;
         }
         .siteInfo{
+          display: flex;
+          align-items: center;
+
           margin: 5px;
           padding: 5px;
+
+          height: 40px;
 
           font-size: 25px;
         }
         .articleBox{
-          height: 545px;
+          height: 530px;
           overflow: auto;
-
         }
       `}
       </style>
