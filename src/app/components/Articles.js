@@ -23,15 +23,14 @@ const ArticleCard = ({ title, link, pubDate }) => {
           text-decoration: none;
         }
         .articleButton {
+          text-align: left;
+
           width: 100%;
           height: 100%;
 
           font-size: 18px;
           overflow: hidden;
 
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3;
           }
         `}</style>
     </>

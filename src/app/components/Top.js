@@ -43,7 +43,7 @@ const Top = () => {
       <Grid container className="body">
         {rssHanlder.selectedRsses.map((rss, idx) => {
           return (
-            <Grid item xs={10} sm={6} md={4} lg={4} xl={3} key={idx}>
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={3} key={idx} space={1}>
               <Box p={1} m={1} className="siteBox">
                 <Araticles site={rss} rssDatas={rssDataObj[rss]}></Araticles>
               </Box>
@@ -55,7 +55,7 @@ const Top = () => {
         {`
           .body {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
           }
           .siteBox {
             display: flex;
