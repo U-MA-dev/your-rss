@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.8.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "fast-xml-parser": "^3.15.1",
     "next": "^9.1.5",
     "react": "^16.12.0",
